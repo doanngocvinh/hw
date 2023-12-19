@@ -232,3 +232,14 @@ sort -nr -k 2 /root/gnome/output/part-00000 | head -n 10
 
 done: k-mer, wordcount, distinct, mean
 
+----------------data----------
+# bash
+docker cp ./data hadoop-master://root
+
+# on master
+hdfs dfs -mkdir /data
+hdfs dfs -put /root/data /data
+hdfs dfs -du -s -h -v /data
+
+# on slave
+du -sh /usr/local/hadoop-3.2.0/datanode/
