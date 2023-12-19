@@ -12,7 +12,7 @@ docker run -itd \
            docker_hadoop 
 docker run -itd --net=hadoop --name hadoop-slave1 --hostname hadoop-slave2 docker_hadoop
 
-docker exec namenode sh -c "hdfs hadoop-master -format"
+docker exec hadoop-master sh -c "hdfs namenode -format"
 docker exec -it namenode bash
 # start-all.sh
 
